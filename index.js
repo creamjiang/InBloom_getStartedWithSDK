@@ -31,7 +31,9 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.session({secret: 'secret'}));
   app.use(express.methodOverride());
-  app.use("/html", express.static('html'));
+  app.use(express.static(__dirname + '/public'));
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
 });
 
 // Creating a instance of SLC
@@ -72,7 +74,8 @@ app.get('/oauth', function (req, res) {
         res.redirect('/dashboard');
       }
       else {
-        res.redirect('html/error.html');
+        //res.redirect('html/error.html');
+	res.send('<html>OAuth Error</html>');
       }
   });
 
@@ -89,24 +92,27 @@ app.get('/logout', function (req, res) {
 });
 
 app.get('/dashboard', requireToken(), function (req, res) {
-  res.redirect('html/index.html');
+  //res.redirect('html/index.html');
+  res.render('index.jade',{ 'title' : 'My App' });
 });
 
-app.get('/html', requireToken(), function (req, res) {
-  res.redirect('html/index.html');
-});
+//app.get('/html', requireToken(), function (req, res) {
+//  res.redirect('html/index.html');
+//});
 
 // Get student list
 app.get('/students', requireToken(), function(req, res) {
   SLC_app.api("/students", "GET", req.session.tokenId, {}, {}, function (data) {
-    res.json(data);
+    //res.json(data);
+    res.render('students.jade',{ 'title' : 'My App - Students', 'students' : data });
   })
 });
 
 // Get School list
 app.get('/schools', requireToken(), function(req, res) {
   SLC_app.api("/schools", "GET", req.session.tokenId, {}, {}, function (data) {
-    res.json(data);
+    //res.json(data);
+    res.render('schools.jade',{ 'title' : 'My App - Schools', 'schools' : data });
   })
 });
 
