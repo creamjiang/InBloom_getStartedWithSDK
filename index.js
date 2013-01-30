@@ -16,7 +16,7 @@
 
 var express = require('express'),
     util = require('util'),
-    SLC = require('../client/SLC');
+    SLC = require('./client/SLC');
     config = require('./config');
 
 require('colors');
