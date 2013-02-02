@@ -1,0 +1,13 @@
+{
+  "name": "SLC_getStartedWithSDK",
+  "description": "Example SLC app based on sample in SLC javascript SDK",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "request" : "2.11.4",
+    "util" : "0.4.9",
+    "colors" : "0.6.0-1",
+    "express" : "3.0.0rc5", 
+    "jade" : "0.28.1"
+  }
+}
