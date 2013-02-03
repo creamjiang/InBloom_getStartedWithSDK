@@ -59,8 +59,13 @@ function requireToken() {
 
 // ROUTES
 
-//Redirect to SLC login page
+//Redirect to App Login
 app.get('/', function (req, res) {
+  res.render('login.jade',{ 'title' : 'My App' });
+});
+
+//Redirect to SLC login page
+app.get('/login', function (req, res) {
   var loginURL = SLC_app.getLoginURL();
   res.redirect(loginURL);
 });
