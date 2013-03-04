@@ -1,4 +1,4 @@
-INBLOOM_getStartedWithSDK
+InBloom_getStartedWithSDK
 =====================
 
 Example InBloom app leveraging the InBloom Javascript SDK sample
