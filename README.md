@@ -10,6 +10,6 @@ Get Started
   * cd ${THIS_PROJECT_NAME}
   * npm install
   * change slc specific values in config.js
-  * node example.js
+  * node index.js
 
 Credit: SLC Client and majority of sample from https://github.com/slcedu/javascript-sdk
